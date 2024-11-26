@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CEO Auto Loan Calculator</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<div class="calculator">
+  <h2>CEO Auto Loan Interest Rate Calculator</h2>
+  <!-- Input Fields -->
+  <label for="loanAmount">Loan Amount ($):</label>
+  <input type="number" id="loanAmount" placeholder="Enter loan amount (max $20000)" />
+
+  <label for="term">Loan Term (Months):</label>
+  <select id="term">
+    <option value="24">24</option>
+    <option value="36">36</option>
+    <option value="48">48</option>
+    <option value="60">60</option>
+    <option value="66">66</option>
+    <option value="72">72</option>
+  </select>
+
+  <label for="ficoScoreRange">FICO Score Range:</label>
+  <select id="ficoScoreRange" required>
+    <option value="">Select FICO Range</option>
+    <option value="660">FICO 660 - 699</option>
+    <option value="700">FICO 700 - 749</option>
+    <option value="750">FICO 750+ (No Discount)</option>
+  </select>
+
+  <label for="downPaymentOption">Down Payment Option:</label>
+  <select id="downPaymentOption" required>
+    <option value="">Select Down Payment Option</option>
+    <option value="10">10% Down Payment / LTV </option>
+    <option value="20">20% Down Payment / LTV </option>
+    <option value="0">No Down Payment (No Discount)</option>
+  </select>
+
+  <label for="state">State:</label>
+  <select id="state">
+    <option value="AZ">Arizona (AZ)</option>
+    <option value="CA">California (CA)</option>
+    <option value="FL">Florida (FL)</option>
+    <option value="GA">Georgia (GA)</option>
+    <option value="IA">Iowa (IA)</option>
+    <option value="ID">Idaho (ID)</option>
+    <option value="KY">Kentucky (KY)</option>
+    <option value="MD">Maryland (MD)</option>
+    <option value="MT">Montana (MT)</option>
+    <option value="NJ">New Jersey (NJ)</option>
+    <option value="NY">New York (NY)</option>
+    <option value="UT">Utah (UT)</option>
+    <option value="CO">Colorado (CO)</option>
+    <option value="KS">Kansas (KS)</option>
+    <option value="MA">Massachusetts (MA)</option>
+    <option value="VA">Virginia (VA)</option>
+    <option value="TX">Texas (TX)</option>
+    <!-- Add more states as needed -->
+  </select>
+
+  <label>
+    <input type="checkbox" lable for="freshstart" id="freshStart" />
+    Fresh Start Discount (for Auto Purchase Loan Only)
+  </label>
+
+  <!-- Calculate button -->
+  <button type="button" id="calculateBtn" onclick="calculateLoanDisclosure()">Calculate</button>
+
+  <!-- Results Section -->
+  <div class="results" id="LoanResults">
+    <h3>Loan Details</h3>
+    <p><strong>Amount Financed:</strong> $<span id="amountFinanced"></span></p>
+    <p><strong>Closing Fee:</strong> $<span id="closingFee"></span></p>
+    <p><strong>Interest Rate:</strong> <span id="finalRate"></span>%</p>
+    <!-- Button to toggle visibility of the extra details -->
+    <button type="button" id="showDetailsBtn" onclick="toggleDetails()">Show Estimated Details</button>
+
+    <!-- Hidden details initially -->
+    <div id="estimatedDetails" style="display: none;">
+      <p><em>Monthly payment, APR, finance charge, and total payments are estimates and may vary slightly based on final loan terms and payment schedule.</em></p>
+      <p><strong>Monthly Payment:</strong> $<span id="monthlyPayment"></span></p>
+      <p><strong>Annual Percentage Rate (APR):</strong> <span id="apr"></span>%</p>
+      <p><strong>Finance Charge:</strong> $<span id="financeCharge"></span></p>
+      <p><strong>Total of Payments:</strong> $<span id="totalPayment"></span></p>
+    </div>
+  </div>
+
+
+  <script src="script.js"></script>
+
+</html>
